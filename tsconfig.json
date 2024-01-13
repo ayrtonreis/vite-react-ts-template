@@ -18,8 +18,11 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+
+        /* Tests */
+        "types": ["vitest/globals"]
     },
-    "include": [".eslintrc.cjs", "src"],
+    "include": [".eslintrc.cjs", "src", "vite.config.ts", "vitest.config.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

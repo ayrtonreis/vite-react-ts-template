@@ -33,6 +33,4 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
         '@typescript-eslint/no-shadow': 0,
     },
-    /** @link {https://github.com/vitejs/vite/issues/13747#issuecomment-1626611687} **/
-    ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts'],
 }
