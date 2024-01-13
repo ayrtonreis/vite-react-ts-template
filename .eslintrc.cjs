@@ -1,18 +1,38 @@
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
+    env: {
+        browser: true,
+        es2021: true,
+    },
+    extends: [
+        'airbnb',
+        'airbnb-typescript',
+        'airbnb/hooks',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:prettier/recommended', // must be the last
     ],
-  },
+    overrides: [
+        {
+            env: {
+                node: true,
+            },
+            files: ['.eslintrc.{js,cjs}'],
+            parserOptions: {
+                sourceType: 'script',
+            },
+        },
+    ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: ['./tsconfig.json'],
+    },
+    plugins: ['react', '@typescript-eslint', 'prettier'],
+    rules: {
+        'react/react-in-jsx-scope': 0,
+        '@typescript-eslint/no-shadow': 0,
+    },
+    /** @link {https://github.com/vitejs/vite/issues/13747#issuecomment-1626611687} **/
+    ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts'],
 }
